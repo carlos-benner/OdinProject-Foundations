@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@font-face {
+    font-family: digital-7;
+    src: url(fonts/digital-7.mono.ttf);
+}
+:root {
+    --background-color: rgb(247, 201, 201);
+    --calc-body-background-color: rgb(92, 87, 102);
+    --button-pad-background-color: rgb(51, 111, 163);
+    --button-pad-border-color: rgb(40, 86, 126);
+}
+
+body {
+    margin: 0;
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+@media only screen and (max-width: 769px) {
+    .calc-body {
+        height: 90%;
+        width: 90%;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    .calc-body {
+        height: 70%;
+        width: 30%;
+    }
+}
+
+.calc-body {
+    background-color: var(--calc-body-background-color);
+    display: grid;
+    grid-template-rows: 2fr 8fr;
+    padding: 10px;
+    border-radius: 10px;
+}
+.calc-screen {
+    background-color: black;
+    margin-bottom: 10px;
+    display: flex;
+    padding: 0px 10px;
+    align-items: center;
+}
+.screen {
+    font-family: 'digital-7', 'Anton', sans-serif;
+    color: chartreuse;
+    font-size: x-large;
+    user-select: none;
+    width: 100%;
+    text-align: right;
+}
+.calc-pad {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 5px;
+    grid-row-gap: 5px;
+}
+.calc-pad > button {
+    font-family: 'Anton', sans-serif;
+    font-size: larger;
+    background-color: var(--button-pad-background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1px;
+    border: 1px solid var(--button-pad-border-color);
+    user-select: none;
+}
