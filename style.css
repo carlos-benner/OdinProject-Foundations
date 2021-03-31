@@ -8,7 +8,19 @@
     --calc-body-background-color: rgb(92, 87, 102);
     --button-pad-background-color: rgb(51, 111, 163);
     --button-pad-border-color: rgb(40, 86, 126);
+    --button-operation-background-color: rgb(196, 140, 188);
+    --button-solve-background-color: rgb(92, 175, 106);
+    --button-clear-background-color: rgb(160, 15, 15);
 }
+
+/* Animations */
+
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+/* End Animations */
 
 body {
     margin: 0;
@@ -18,20 +30,6 @@ body {
     align-items: center;
     height: 100vh;
     width: 100vw;
-}
-
-@media only screen and (max-width: 769px) {
-    .calc-body {
-        height: 90%;
-        width: 90%;
-    }
-}
-
-@media only screen and (min-width: 769px) {
-    .calc-body {
-        height: 70%;
-        width: 30%;
-    }
 }
 
 .calc-body {
@@ -51,11 +49,17 @@ body {
 .screen {
     font-family: 'digital-7', 'Anton', sans-serif;
     color: chartreuse;
-    font-size: x-large;
+    font-size: xx-large;
     user-select: none;
     width: 100%;
     text-align: right;
+
+    animation-duration: 0.2s;
+    animation-name: blink;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
+
 .calc-pad {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
@@ -65,7 +69,7 @@ body {
 }
 .calc-pad > button {
     font-family: 'Anton', sans-serif;
-    font-size: larger;
+    font-size: x-large;
     background-color: var(--button-pad-background-color);
     display: flex;
     justify-content: center;
@@ -73,4 +77,40 @@ body {
     border-radius: 1px;
     border: 1px solid var(--button-pad-border-color);
     user-select: none;
+}
+.calc-pad > button > sup {
+    font-size: medium;
+    margin-top: -15px;
+}
+
+.calc-pad > button.btn-operation {
+    background-color: var(--button-operation-background-color);
+}
+.calc-pad > button.btn-clear {
+    color: lightgrey;
+    background-color: var(--button-clear-background-color);
+    border-color: var(--button-clear-background-color);
+}
+.calc-pad > button.btn-solve {
+    background-color: var(--button-solve-background-color);
+}
+
+.blink {
+    animation: blink-animation 1000ms steps(3, start) infinite;
+}
+
+/* Media */
+
+@media only screen and (max-width: 769px) {
+    .calc-body {
+        height: 90%;
+        width: 90%;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    .calc-body {
+        height: 70%;
+        width: 30%;
+    }
 }

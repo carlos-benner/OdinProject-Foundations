@@ -14,33 +14,87 @@
     <body>
         <div class="calc-body">
             <div class="calc-screen">
-                <label class="screen">321 + 22 * 1</label>
+                <label class="screen blink">0</label>
             </div>
             <div class="calc-pad">
-                <button data-key="(">(</button>
-                <button data-key=")">)</button>
-                <button data-key="exp">x<sup>y</sup></button>
-                <button data-key="/">÷</button>
+                <button
+                    class="btn-operation"
+                    data-key-type="grouping"
+                    data-key="("
+                >
+                    (
+                </button>
+                <button
+                    class="btn-operation"
+                    data-key-type="grouping"
+                    data-key=")"
+                >
+                    )
+                </button>
+                <button
+                    class="btn-operation"
+                    data-key-type="operation"
+                    data-key="^"
+                >
+                    x<sup>y</sup>
+                </button>
+                <button
+                    class="btn-operation"
+                    data-key-type="operation"
+                    data-key="/"
+                >
+                    ÷
+                </button>
 
-                <button data-key="7">7</button>
-                <button data-key="8">8</button>
-                <button data-key="9">9</button>
-                <button data-key="*">*</button>
+                <button data-key-type="digit" data-key="7">7</button>
+                <button data-key-type="digit" data-key="8">8</button>
+                <button data-key-type="digit" data-key="9">9</button>
+                <button
+                    class="btn-operation"
+                    data-key-type="operation"
+                    data-key="*"
+                >
+                    *
+                </button>
 
-                <button data-key="4">4</button>
-                <button data-key="5">5</button>
-                <button data-key="6">6</button>
-                <button data-key="-">-</button>
+                <button data-key-type="digit" data-key="4">4</button>
+                <button data-key-type="digit" data-key="5">5</button>
+                <button data-key-type="digit" data-key="6">6</button>
+                <button
+                    class="btn-operation"
+                    data-key-type="operation"
+                    data-key="-"
+                >
+                    -
+                </button>
 
-                <button data-key="1">1</button>
-                <button data-key="2">2</button>
-                <button data-key="3">3</button>
-                <button data-key="+">+</button>
+                <button data-key-type="digit" data-key="1">1</button>
+                <button data-key-type="digit" data-key="2">2</button>
+                <button data-key-type="digit" data-key="3">3</button>
+                <button
+                    class="btn-operation"
+                    data-key-type="operation"
+                    data-key="+"
+                >
+                    +
+                </button>
 
-                <button data-key="0">0</button>
-                <button data-key=".">.</button>
-                <button data-key="clear" class="btn-clear">AC</button>
-                <button data-key="solve" class="btn-equal">=</button>
+                <button data-key-type="digit" data-key="0">0</button>
+                <button data-key-type="digit" data-key=".">.</button>
+                <button
+                    class="btn-clear"
+                    data-key-type="clear"
+                    data-key="clear"
+                >
+                    AC
+                </button>
+                <button
+                    class="btn-solve"
+                    data-key-type="solve"
+                    data-key="solve"
+                >
+                    =
+                </button>
             </div>
         </div>
     </body>
