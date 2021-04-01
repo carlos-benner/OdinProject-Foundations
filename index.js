@@ -15,20 +15,31 @@ function buttonPressed(e) {
 
     if (
         keyType != 'clear' &&
+        keyType != 'clearOnce' &&
         keyType != 'solve' &&
         keyType != lastKey &&
-        currentInput != ''
+        currentInput != '' &&
+        !currentInput.endsWith(' ')
     ) {
         currentInput += ' ';
     }
 
     switch (keyType) {
         case 'clear':
-            currentInput = '';
-            screen.textContent = '0';
-            screen.classList.add('blink');
+            clearScreen();
+            break;
+        case 'clearOnce':
+            currentInput = currentInput.split('').slice(0, -1).join('');
+            if (currentInput.length == 0) {
+                clearScreen();
+            }
             break;
         case 'solve':
+            if (lastKey == 'operation') {
+                console.log('last key operation', currentInput);
+                currentInput = currentInput.split('').slice(0, -1).join('');
+                console.log(currentInput);
+            }
             currentInput = solveEquation(currentInput);
             break;
         case 'grouping':
@@ -54,7 +65,7 @@ function buttonPressed(e) {
         case 'operation':
             //replace last operation
             if (lastKey === 'operation')
-                currentInput = currentInput.split('').splice(-3).join('');
+                currentInput = currentInput.split('').slice(0, -1).join('');
             if (currentInput === '') currentInput = '0';
             currentInput += `${keyValue}`;
             break;
@@ -66,7 +77,14 @@ function buttonPressed(e) {
         screen.textContent = currentInput;
         screen.classList.remove('blink');
     }
-    lastKey = keyType != null ? keyType : 'digit';
+    lastKey = keyType != null && keyType != 'clearOnce' ? keyType : 'digit';
+}
+
+function clearScreen() {
+    const screen = document.querySelector('.calc-screen > .screen');
+    currentInput = '';
+    screen.textContent = '0';
+    screen.classList.add('blink');
 }
 
 function solveEquation(eq) {

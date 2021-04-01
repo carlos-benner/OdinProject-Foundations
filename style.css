@@ -92,6 +92,7 @@ body {
     border-color: var(--button-clear-background-color);
 }
 .calc-pad > button.btn-solve {
+    grid-column: 3/5;
     background-color: var(--button-solve-background-color);
 }
 
